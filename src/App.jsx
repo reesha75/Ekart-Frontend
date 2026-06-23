@@ -13,7 +13,7 @@ import VerifyOtp from './pages/VerifyOtp';
 import ResetPassword from './pages/ResetPassword';
 // Components import karein
 import Navbar from './components/Navbar';
-import Profile from './pages/profile';
+import Profile from './pages/Profile';
 import Products from './pages/Products';
 import Cart from './pages/Cart';
 import Dashboard from './pages/Dashboard';
