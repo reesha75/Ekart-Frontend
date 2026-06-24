@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import { api } from '@/lib/api';
 import { toast } from 'sonner';
 import FilterSidebar from '@/components/FilterSidebar';
 import CustomDropdown from '@/components/CustomDropdown';
@@ -23,7 +23,7 @@ const Products = () => {
   const getAllProducts = async () => {
     try {
       setLoading(true);
-      const res = await axios.get('http://localhost:5000/api/v1/product/getAllProducts');
+      const res = await api.get('/api/v1/product/getAllProducts');
       if (res.data.success) {
         setAllProducts(res.data.products);
         dispatch(setProducts(res.data.products));
