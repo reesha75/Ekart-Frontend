@@ -3,7 +3,7 @@ import { Input } from './ui/input';
 import { Button } from './ui/button';
 import { Search, Filter, RotateCcw } from 'lucide-react';
 
-const FilterSidebar = ({ search, setSearch, category, setCategory, brand, setBrand, setPriceRange, allProducts, priceRange }) => {
+const FilterSidebar = ({ search, setSearch, category, setCategory, brand, setBrand, setPriceRange, allProducts, priceRange, className }) => {
   const Categories = ["All", ...new Set(allProducts.map((p) => p.category).filter(Boolean))];
   const Brands = ["All", ...new Set(allProducts.map((p) => p.brand).filter(Boolean))];
 
@@ -27,8 +27,10 @@ const FilterSidebar = ({ search, setSearch, category, setCategory, brand, setBra
     setPriceRange([0, 999999]);
   };
 
+  const defaultClasses = 'bg-[#111827] border border-white/5 p-6 rounded-2xl h-max hidden md:block w-64 shadow-xl select-none sticky top-28';
+
   return (
-    <div className='bg-card border border-white/5 p-6 rounded-2xl h-max hidden md:block w-64 shadow-xl select-none sticky top-28'>
+    <div className={className ? className : defaultClasses}>
       
       {/* Header */}
       <div className="flex items-center gap-2 mb-6 text-white border-b border-white/5 pb-3">

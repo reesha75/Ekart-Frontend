@@ -6,10 +6,11 @@ import CustomDropdown from '@/components/CustomDropdown';
 import ProductCard from '@/components/ProductCard';
 import { useDispatch, useSelector } from 'react-redux';
 import { setProducts } from '@/redux/productSlice';
-import { Sparkles, ShoppingBag } from 'lucide-react';
+import { Sparkles, ShoppingBag, Filter, X } from 'lucide-react';
 
 const Products = () => {
   const { products } = useSelector(store => store.product);
+  const [showMobileFilters, setShowMobileFilters] = useState(false);
   const [allProducts, setAllProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState("");
@@ -106,10 +107,16 @@ const Products = () => {
               </p>
             </div>
             
-            <div className='flex items-center gap-4 self-end'>
-              <span className="text-xs text-gray-500 font-mono">
+            <div className='flex items-center gap-3 md:gap-4 self-end'>
+              <span className="text-xs text-gray-500 font-mono hidden sm:inline">
                 {products.length} {products.length === 1 ? 'item' : 'items'} found
               </span>
+              <button 
+                onClick={() => setShowMobileFilters(true)}
+                className="md:hidden flex items-center gap-2 bg-accent/10 border border-accent/20 hover:bg-accent/20 text-accent px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 cursor-pointer"
+              >
+                <Filter className="size-4" /> Filters
+              </button>
               <CustomDropdown 
                 placeholder="Sort by Price" 
                 options={[
@@ -153,6 +160,42 @@ const Products = () => {
             </div>
           )}
         </div>
+        {/* Mobile Filter Drawer Overlay */}
+        {showMobileFilters && (
+          <div className="fixed inset-0 z-50 md:hidden">
+            {/* Backdrop */}
+            <div 
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm"
+              onClick={() => setShowMobileFilters(false)}
+            />
+            {/* Drawer Content */}
+            <div className="fixed inset-y-0 left-0 w-full max-w-[280px] bg-[#050816] border-r border-white/10 p-6 overflow-y-auto flex flex-col transition-all duration-300">
+              <div className="flex justify-between items-center mb-6 border-b border-white/5 pb-3">
+                <span className="font-heading font-bold text-lg text-white flex items-center gap-2">
+                  <Filter className="size-4 text-accent" /> Filters
+                </span>
+                <button 
+                  onClick={() => setShowMobileFilters(false)}
+                  className="text-gray-400 hover:text-white p-1"
+                >
+                  <X className="size-5" />
+                </button>
+              </div>
+              <FilterSidebar 
+                search={search} 
+                setSearch={setSearch} 
+                category={category} 
+                setCategory={setCategory} 
+                brand={brand} 
+                setBrand={setBrand} 
+                allProducts={allProducts} 
+                priceRange={priceRange} 
+                setPriceRange={setPriceRange}
+                className="block w-full border-none p-0 shadow-none bg-transparent"
+              />
+            </div>
+          </div>
+        )}
 
       </div>
     </div>
