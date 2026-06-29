@@ -91,10 +91,10 @@ const Navbar = () => {
 
   return (
     <header 
-      className={`fixed top-0 w-full z-50 transition-all duration-300 border-b border-white/5 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-white/5 ${
         scrolled 
           ? 'bg-background/90 backdrop-blur-md shadow-lg shadow-black/30 py-3' 
-          : 'bg-background/40 backdrop-blur-sm py-4'
+          : 'bg-[#050816]/95 md:bg-background/40 backdrop-blur-md md:backdrop-blur-sm py-3 md:py-4'
       }`}
     >
       <div className='max-w-7xl mx-auto flex justify-between items-center px-4 sm:px-6'>
@@ -234,9 +234,8 @@ const Navbar = () => {
 
       </div>
 
-      {/* Mobile Drawer Menu */}
       <div 
-        className={`fixed inset-y-0 right-0 z-40 w-full max-w-xs bg-card/95 backdrop-blur-xl border-l border-white/10 shadow-2xl p-6 transition-all duration-300 md:hidden ${
+        className={`fixed inset-y-0 right-0 z-40 w-full max-w-xs bg-[#050816]/95 backdrop-blur-xl border-l border-white/10 shadow-2xl p-6 transition-all duration-300 md:hidden ${
           mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
