@@ -1,6 +1,6 @@
 import { ShoppingCart, Menu, X, User, LayoutDashboard, LogOut } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Button } from './ui/button'
 import { api } from '@/lib/api'
 import { toast } from 'sonner'
@@ -14,6 +14,7 @@ const Navbar = () => {
   const { cart } = useSelector(store => store.product)
   const dispatch = useDispatch()
   const location = useLocation()
+  const navigate = useNavigate()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
@@ -80,7 +81,7 @@ const Navbar = () => {
       dispatch(setUser(null))
       dispatch(setCart({ items: [], totalPrice: 0 })) // Clear Redux cart state on logout
       toast.success("Logged out successfully");
-      window.location.href = "/login"
+      navigate("/login")
     }
   }
 
