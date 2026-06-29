@@ -185,16 +185,16 @@ const Hero = () => {
       {/* Navigation Controls */}
       <button 
         onClick={handlePrev}
-        className="absolute left-4 top-1/2 -translate-y-1/2 p-2 bg-[#111827]/60 hover:bg-accent hover:text-background text-white rounded-full border border-white/10 hover:border-accent shadow-md transition-all duration-200 z-20 cursor-pointer hidden md:flex items-center justify-center"
+        className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 p-1.5 md:p-2 bg-[#111827]/60 hover:bg-accent hover:text-background text-white rounded-full border border-white/10 hover:border-accent shadow-md transition-all duration-200 z-20 cursor-pointer flex items-center justify-center"
       >
-        <ChevronLeft className="size-6" />
+        <ChevronLeft className="size-5 md:size-6" />
       </button>
 
       <button 
         onClick={handleNext}
-        className="absolute right-4 top-1/2 -translate-y-1/2 p-2 bg-[#111827]/60 hover:bg-accent hover:text-background text-white rounded-full border border-white/10 hover:border-accent shadow-md transition-all duration-200 z-20 cursor-pointer hidden md:flex items-center justify-center"
+        className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 p-1.5 md:p-2 bg-[#111827]/60 hover:bg-accent hover:text-background text-white rounded-full border border-white/10 hover:border-accent shadow-md transition-all duration-200 z-20 cursor-pointer flex items-center justify-center"
       >
-        <ChevronRight className="size-6" />
+        <ChevronRight className="size-5 md:size-6" />
       </button>
 
       {/* Dot Indicators */}
