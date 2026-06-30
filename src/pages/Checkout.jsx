@@ -12,7 +12,7 @@ import {
 
 // ── Your Easypaisa account details (update these) ──────────────
 const EASYPAISA_ACCOUNT = {
-  number: '0331-4405665',       // ← apna Easypaisa number yahan dalo
+  number: '03xxxxxxxx',       // ← apna Easypaisa number yahan dalo
   name: 'Areesha Aftab',      // ← apna naam
 };
 // ────────────────────────────────────────────────────────────────
